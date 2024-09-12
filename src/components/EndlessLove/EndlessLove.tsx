@@ -1,6 +1,6 @@
 import React from "react";
-import pinkForest from "@/assets/images/pink-forest.jpg";
-import imgbride from "@/assets/images/pink-forest-ayat-bunga.webp";
+import pinkForest from "@/../public/images/pink-forest.jpg";
+import imgbride from "@/../public/images/pink-forest-ayat-bunga.webp";
 import Image from "next/image";
 import {
   aston_script,
@@ -10,8 +10,8 @@ import {
 
 const EndlessLove = () => {
   return (
-    <div className="min-h-screen w-full bg-primary py-[75px] px-5">
-      <div className="relative bg-whiteSmooke rounded-full border-8 border-primary shadow-sm pt-[45px] px-[30px] pb-[120px] overflow-hidden min-h-screen">
+    <div className="w-full bg-primary py-[75px] px-5">
+      <div className="relative bg-whiteSmooke rounded-full border-8 border-primary shadow-sm pt-[45px] px-[30px] pb-[120px] overflow-hidden">
         <div
           className="bg-cover bg-center opacity-20 absolute top-0 left-0 w-full h-full"
           style={{
