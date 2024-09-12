@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import imgCover from "@/assets/images/cover.jpg";
 import {
   marcellus,
   montserrat_semi,
@@ -12,12 +11,12 @@ import Button from "../_global/Button";
 import Lottie from "lottie-react";
 import arrowDown from "@/assets/lottie/arrow_down.json";
 import data from "@/utils/data";
-import { formatDate } from "@/utils/formatData";
+import { formatDate } from "@/utils/formatDate";
 import { motion } from "framer-motion";
 import { showZoomIn } from "@/utils/animatios";
 
 const Cover = () => {
-  const { dataMempelai } = data();
+  const { dataMempelai, dataCover } = data();
   const [isOpen, setIsOpen] = useState(false);
   const [showText, setShowText] = useState(false);
 
@@ -36,7 +35,7 @@ const Cover = () => {
         <div
           className="h-screen w-full overflow-hidden bg-cover bg-no-repeat bg-center flex items-center justify-center"
           style={{
-            backgroundImage: `url(${imgCover.src})`,
+            backgroundImage: `url(${dataCover.image})`,
           }}
         >
           <div className="flex flex-col items-center gap-5">
@@ -73,7 +72,7 @@ const Cover = () => {
             autoPlay
             muted
             className="absolute top-0 left-0 w-full h-full object-cover"
-            src={"/video/video.mp4"}
+            src={dataCover.video}
           ></video>
           {showText &&
             dataMempelai.map((item, index) => (

@@ -1,4 +1,10 @@
 const data = () => {
+  const dataCover = {
+    id: "1",
+    image: "/images/cover.jpg",
+    video: "/video/video.mp4",
+  };
+
   const dataMempelai = [
     {
       id: "1",
@@ -20,6 +26,7 @@ const data = () => {
 
   return {
     dataMempelai,
+    dataCover,
   };
 };
 

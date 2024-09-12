@@ -9,7 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "rgb(154, 110, 118)",
+        primary: "#9A6E76",
+        whiteSmooke: "#E6DED8",
+        black: "#181818",
+      },
+      boxShadow: {
+        sm: "0px 0px 30px 0px rgba(0, 0, 0, 0.5);",
       },
     },
   },
