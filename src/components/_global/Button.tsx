@@ -4,16 +4,18 @@ interface IButton {
   className?: string;
   children: ReactNode;
   onClick?: () => void;
+  iconLeft?: ReactNode;
 }
 
-const Button = ({ className, children, onClick }: IButton) => {
+const Button = ({ className, children, onClick, iconLeft }: IButton) => {
   return (
-    <button
+    <div
       onClick={onClick}
-      className={`${className} py-[14px] px-[33px] text-sm rounded-3xl`}
+      className={`${className} py-[14px] px-[33px] text-sm rounded-full flex items-center gap-2`}
     >
-      {children}
-    </button>
+      {iconLeft}
+      <button>{children}</button>
+    </div>
   );
 };
 

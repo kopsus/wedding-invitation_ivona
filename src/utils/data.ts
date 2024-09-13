@@ -24,9 +24,31 @@ const data = () => {
     },
   ];
 
+  const weddingEvent = [
+    {
+      id: "1",
+      title: "Holy Matrimony",
+      date: "10/22/2024",
+      timeStart: "09.00 - 11.00",
+      timeEnd: "11.00",
+      place: "GBKP Cilitan",
+      maps: "Jl. Mayjen Sutoyo No.51, RT.2/RW.8, Cililitan, Kec. Kramat jati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13640",
+    },
+    {
+      id: "2",
+      title: "Reception",
+      date: "10/22/2024",
+      timeStart: "09.00 - 11.00",
+      time: "09.00 - 11.00",
+      place: "Jambur Djawata Function Hall",
+      maps: "Jl. Raya Jatiwaringin No.49, RT.001/RW.010, Jatiwaringin, Kec. Pd. Gede, Kota Bks, Jawa Barat 17411",
+    },
+  ];
+
   return {
     dataMempelai,
     dataCover,
+    weddingEvent,
   };
 };
 
