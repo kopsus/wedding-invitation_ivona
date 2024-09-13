@@ -45,10 +45,40 @@ const data = () => {
     },
   ];
 
+  const rekening = [
+    {
+      id: "1",
+      icon: "/images/BCA.png",
+      noRekening: "123-456-788",
+      namaRekening: "Nama pemelik rekening",
+    },
+    {
+      id: "2",
+      icon: "/images/BNI.png",
+      noRekening: "123-456-788",
+      namaRekening: "Nama pemelik rekening",
+    },
+    {
+      id: "3",
+      icon: "/images/SHOPEEPAY.png",
+      noRekening: "123-456-788",
+      namaRekening: "Nama pemelik rekening",
+    },
+  ];
+
+  const penerimaGift = {
+    id: "1",
+    namaPenerima: "Nama Penerima",
+    alamat:
+      "Address : Blossom Residence No 20 Jl. Angsana, Pademangan Timur, Kec. Pademangan, Kota Jkt Utara, DKI Jakarta 14410",
+  };
+
   return {
     dataMempelai,
     dataCover,
     weddingEvent,
+    rekening,
+    penerimaGift,
   };
 };
 

@@ -8,6 +8,8 @@ import {
   Raleway,
   Roboto,
   Open_Sans,
+  Abhaya_Libre,
+  Lato,
 } from "next/font/google";
 
 export const aston_script = localFont({
@@ -80,6 +82,24 @@ export const raleway_light = Raleway({
 
 export const playfair_display = Playfair_Display({
   weight: "500",
+  style: "normal",
+  subsets: ["latin"],
+});
+
+export const abhaya_libre = Abhaya_Libre({
+  weight: "500",
+  style: "normal",
+  subsets: ["latin"],
+});
+
+export const lato = Lato({
+  weight: "400",
+  style: "normal",
+  subsets: ["latin"],
+});
+
+export const latoBold = Lato({
+  weight: "700",
   style: "normal",
   subsets: ["latin"],
 });
