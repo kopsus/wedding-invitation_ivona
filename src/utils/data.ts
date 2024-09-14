@@ -129,6 +129,31 @@ const data = () => {
     },
   ];
 
+  const loveStory = {
+    id: "1",
+    image: "/images/love_story.jpg",
+    stroy: [
+      {
+        id: "1",
+        title: "first meeting",
+        story:
+          "At the beginning of our acquaintance, we were in the same class when we were in college. He sent a private chat because he knew that we were from the same city. From there we got to know each other.",
+      },
+      {
+        id: "2",
+        title: "two become one",
+        story:
+          "At the beginning of our acquaintance, we were in the same class when we were in college. He sent a private chat because he knew that we were from the same city. From there we got to know each other.",
+      },
+      {
+        id: "3",
+        title: "new journey",
+        story:
+          "At the beginning of our acquaintance, we were in the same class when we were in college. He sent a private chat because he knew that we were from the same city. From there we got to know each other.",
+      },
+    ],
+  };
+
   return {
     dataMempelai,
     dataCover,
@@ -137,6 +162,7 @@ const data = () => {
     penerimaGift,
     youtubeLink,
     gallery,
+    loveStory,
   };
 };
 
