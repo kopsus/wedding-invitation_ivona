@@ -4,6 +4,7 @@ import EndlessLove from "@/components/endlessLove/EndlessLove";
 import Event from "@/components/event/Event";
 import Gallery from "@/components/gallery/Gallery";
 import Gift from "@/components/gift/Gift";
+import Rsvp from "@/components/rsvp/Rsvp";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <Event />
       <Gift />
       <Gallery />
+      <Rsvp />
     </>
   );
 }
