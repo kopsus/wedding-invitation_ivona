@@ -1,6 +1,6 @@
 import Bride from "@/components/bride/Bride";
 import Cover from "@/components/cover/Cover";
-import EndlessLove from "@/components/endlessLove/EndlessLove";
+import EndlessLove from "@/components/endlessLove/Endless";
 import Event from "@/components/event/Event";
 import Footer from "@/components/footer/Footer";
 import Gallery from "@/components/gallery/Gallery";
