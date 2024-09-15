@@ -10,6 +10,7 @@ import {
   Open_Sans,
   Abhaya_Libre,
   Lato,
+  Poppins,
 } from "next/font/google";
 
 export const aston_script = localFont({
@@ -100,6 +101,12 @@ export const lato = Lato({
 
 export const latoBold = Lato({
   weight: "700",
+  style: "normal",
+  subsets: ["latin"],
+});
+
+export const poppins = Poppins({
+  weight: "400",
   style: "normal",
   subsets: ["latin"],
 });
