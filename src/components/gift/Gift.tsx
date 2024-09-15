@@ -52,7 +52,7 @@ const Gift = () => {
             something else, please tap the button down below for further
             information:
           </p>
-          <Link href={"/https://www.instagram.com/"} target="_blank">
+          <Link href={"https://www.instagram.com/"} target="_blank">
             <Button
               className="bg-primary text-white hover:scale-110 transition-all"
               iconLeft={<FaVideo color="#fff" size={16} />}

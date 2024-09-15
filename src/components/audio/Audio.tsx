@@ -1,22 +1,43 @@
 "use client";
 
 import data from "@/utils/data";
-import { useState } from "react";
+import React, { RefObject, SetStateAction } from "react";
 import { FaMusic, FaPause } from "react-icons/fa";
 
-const Audio = () => {
+interface IAudio {
+  toggleAudio: () => void;
+  isPlaying: boolean;
+  audioRef: RefObject<HTMLAudioElement>;
+  setIsPlaying: React.Dispatch<SetStateAction<boolean>>;
+}
+
+const Audio = ({ toggleAudio, isPlaying, audioRef, setIsPlaying }: IAudio) => {
   const { audio } = data();
-  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <>
       <div
         className="z-50 fixed bottom-10 right-[50px] md:right-1/3 w-8 h-8 p-1 rounded-full bg-white flex justify-center items-center text-white cursor-pointer"
-        onClick={() => setIsPlaying(!isPlaying)}
+        onClick={toggleAudio}
       >
         {!isPlaying ? <FaPause color="#000" /> : <FaMusic color="#000" />}
       </div>
-      <audio src={audio.audio} loop />
+      <audio
+        ref={audioRef}
+        src={audio.audio}
+        loop
+        onCanPlay={() => {
+          if (!isPlaying) {
+            console.log("Audio is ready to play");
+            if (audioRef.current) {
+              audioRef.current.play().catch((error) => {
+                console.error("Audio playback failed: ", error);
+              });
+              setIsPlaying(true);
+            }
+          }
+        }}
+      />
     </>
   );
 };

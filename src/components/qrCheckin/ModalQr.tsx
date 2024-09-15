@@ -69,7 +69,6 @@ const ModalQr = ({ closeModal }: IModalQr) => {
                   </p>
                 </div>
                 <div className="flex-1">
-                  {/* <div className="h-40 w-full rounded-md bg-white"> */}
                   <Canvas
                     text={"guestName"}
                     options={{
@@ -79,7 +78,6 @@ const ModalQr = ({ closeModal }: IModalQr) => {
                       width: 170,
                     }}
                   />
-                  {/* </div> */}
                 </div>
               </div>
               <p

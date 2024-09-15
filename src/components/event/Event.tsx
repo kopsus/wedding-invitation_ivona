@@ -14,6 +14,7 @@ import Button from "../_global/Button";
 import { SlCalender } from "react-icons/sl";
 import data from "@/utils/data";
 import { formatDateAndDay } from "@/utils/formatDate";
+import Link from "next/link";
 
 const Event = () => {
   const { weddingEvent } = data();
@@ -93,13 +94,18 @@ const Event = () => {
                   >
                     {item.maps}
                   </p>
-                  <Button
-                    className={`${montserrat_medium.className} text-white bg-primary py-[14px] px-[35px] 
-                    rounded-[25px] mt-5 hover:scale-110 transition-all`}
-                    iconLeft={<FaMapMarkerAlt size={16} color="#fff" />}
+                  <Link
+                    href={`https://www.google.com/maps/place/${item.maps}`}
+                    target="_blank"
                   >
-                    Open Maps
-                  </Button>
+                    <Button
+                      className={`${montserrat_medium.className} text-white bg-primary py-[14px] px-[35px] 
+                    rounded-[25px] mt-5 hover:scale-110 transition-all`}
+                      iconLeft={<FaMapMarkerAlt size={16} color="#fff" />}
+                    >
+                      Open Maps
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

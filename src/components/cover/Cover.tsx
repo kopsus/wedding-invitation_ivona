@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   marcellus,
   montserrat_semi,
@@ -14,12 +14,23 @@ import data from "@/utils/data";
 import { formatDate } from "@/utils/formatDate";
 import { motion } from "framer-motion";
 import { showZoomIn } from "@/utils/animatios";
+import EndlessLove from "../endlessLove/Endless";
+import Bride from "../bride/Bride";
+import Event from "../event/Event";
+import Gift from "../gift/Gift";
+import Gallery from "../gallery/Gallery";
+import Rsvp from "../rsvp/Rsvp";
+import LoveStory from "../loveStory/LoveStory";
+import QrCheckin from "../qrCheckin/QrCheckin";
+import Timeline from "../timeline/Timeline";
+import Footer from "../footer/Footer";
+import Audio from "../audio/Audio";
 
 const Cover = () => {
   const { dataMempelai, dataCover } = data();
   const [isOpen, setIsOpen] = useState(false);
-  // const [isPlaying, setIsPlaying] = useState(false);
   const [showText, setShowText] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,20 +41,35 @@ const Cover = () => {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
-  // const audioRef = useRef(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
-  // const toggleAudio = () => {
-  //   if (audioRef.current) {
-  //     if (isPlaying) {
-  //       audioRef.current.pause();
-  //     } else {
-  //       audioRef.current.play().catch((error) => {
-  //         console.error("Audio playback failed: ", error);
-  //       });
-  //     }
-  //     setIsPlaying(!isPlaying);
-  //   }
-  // };
+  useEffect(() => {
+    if (showContent && contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showContent]);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch((error) => {
+          console.error("Playback audio gagal: ", error);
+        });
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleClick = () => {
+    setShowContent(true);
+    setIsOpen(true);
+    toggleAudio();
+  };
 
   return (
     <>
@@ -72,7 +98,7 @@ const Cover = () => {
               <p>Guest Name</p>
             </div>
             <Button
-              onClick={() => setIsOpen(true)}
+              onClick={handleClick}
               className={`${open_sans.className} bg-black text-white hover:scale-110 transition-all`}
             >
               Open Invitation
@@ -121,6 +147,26 @@ const Cover = () => {
               />
             </motion.div>
           )}
+        </div>
+      )}
+      {showContent && (
+        <div ref={contentRef}>
+          <EndlessLove />
+          <Bride />
+          <Event />
+          <Gift />
+          <Gallery />
+          <Rsvp />
+          <LoveStory />
+          <QrCheckin />
+          <Timeline />
+          <Footer />
+          <Audio
+            audioRef={audioRef}
+            isPlaying={isPlaying}
+            toggleAudio={toggleAudio}
+            setIsPlaying={setIsPlaying}
+          />
         </div>
       )}
     </>
