@@ -159,6 +159,10 @@ const data = () => {
     endDate: "2024-12-12T16:00:00",
   };
 
+  const audio = {
+    audio: "/audio/Indonesia-Raya.mp3",
+  };
+
   return {
     dataMempelai,
     dataCover,
@@ -169,6 +173,7 @@ const data = () => {
     gallery,
     loveStory,
     timeline,
+    audio,
   };
 };
 

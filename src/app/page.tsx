@@ -1,3 +1,4 @@
+import Audio from "@/components/audio/Audio";
 import Bride from "@/components/bride/Bride";
 import Cover from "@/components/cover/Cover";
 import EndlessLove from "@/components/endlessLove/Endless";
@@ -24,6 +25,7 @@ export default function Page() {
       <QrCheckin />
       <Timeline />
       <Footer />
+      <Audio />
     </>
   );
 }

@@ -18,6 +18,7 @@ import { showZoomIn } from "@/utils/animatios";
 const Cover = () => {
   const { dataMempelai, dataCover } = data();
   const [isOpen, setIsOpen] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
@@ -28,6 +29,21 @@ const Cover = () => {
     }, 15000);
     return () => clearTimeout(timer);
   }, [isOpen]);
+
+  // const audioRef = useRef(null);
+
+  // const toggleAudio = () => {
+  //   if (audioRef.current) {
+  //     if (isPlaying) {
+  //       audioRef.current.pause();
+  //     } else {
+  //       audioRef.current.play().catch((error) => {
+  //         console.error("Audio playback failed: ", error);
+  //       });
+  //     }
+  //     setIsPlaying(!isPlaying);
+  //   }
+  // };
 
   return (
     <>
