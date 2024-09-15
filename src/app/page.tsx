@@ -5,7 +5,9 @@ import Event from "@/components/event/Event";
 import Gallery from "@/components/gallery/Gallery";
 import Gift from "@/components/gift/Gift";
 import LoveStory from "@/components/loveStory/LoveStory";
+import QrCheckin from "@/components/qrCheckin/QrCheckin";
 import Rsvp from "@/components/rsvp/Rsvp";
+import Timeline from "@/components/timeline/Timeline";
 
 export default function Page() {
   return (
@@ -18,6 +20,8 @@ export default function Page() {
       <Gallery />
       <Rsvp />
       <LoveStory />
+      <QrCheckin />
+      <Timeline />
     </>
   );
 }

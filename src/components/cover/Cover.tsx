@@ -42,16 +42,13 @@ const Cover = () => {
             <p className={`${marcellus.className} text-lg text-black`}>
               THE WEDDING OF
             </p>
-            {dataMempelai.map((item, index) => (
-              <div
-                key={index}
-                className={`${marcellus.className} text-[40px] text-primary text-center`}
-              >
-                <p>{item.nama_panggilan_pria}</p>
-                <p>&</p>
-                <p>{item.nama_panggilan_wanita}</p>
-              </div>
-            ))}
+            <div
+              className={`${marcellus.className} text-[40px] text-primary text-center`}
+            >
+              <p>{dataMempelai.nama_panggilan_pria}</p>
+              <p>&</p>
+              <p>{dataMempelai.nama_panggilan_wanita}</p>
+            </div>
             <div
               className={`${montserrat_semi.className} text-[15px] text-black text-center`}
             >
@@ -74,42 +71,40 @@ const Cover = () => {
             className="absolute top-0 left-0 w-full h-full object-cover"
             src={dataCover.video}
           ></video>
-          {showText &&
-            dataMempelai.map((item, index) => (
-              <motion.div
-                variants={showZoomIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                key={index}
-                className="relative z-10 flex flex-col items-center justify-center h-full gap-5"
+          {showText && (
+            <motion.div
+              variants={showZoomIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative z-10 flex flex-col items-center justify-center h-full gap-5"
+            >
+              <p className={`${marcellus.className} text-lg text-black`}>
+                THE WEDDING OF
+              </p>
+              <div
+                className={`${marcellus.className} text-[40px] text-primary text-center`}
               >
-                <p className={`${marcellus.className} text-lg text-black`}>
-                  THE WEDDING OF
-                </p>
-                <div
-                  className={`${marcellus.className} text-[40px] text-primary text-center`}
+                <p>{dataMempelai.nama_panggilan_pria}</p>
+                <p
+                  className={`${pinyon_script.className} text-[35px] text-black`}
                 >
-                  <p>{item.nama_panggilan_pria}</p>
-                  <p
-                    className={`${pinyon_script.className} text-[35px] text-black`}
-                  >
-                    and
-                  </p>
-                  <p>{item.nama_panggilan_wanita}</p>
-                </div>
-                <p className={`${marcellus.className} text-base text-black`}>
-                  {formatDate(item.timeline)}
+                  and
                 </p>
-                <Lottie
-                  animationData={arrowDown}
-                  loop={true}
-                  autoPlay={true}
-                  color="#000"
-                />
-              </motion.div>
-            ))}
+                <p>{dataMempelai.nama_panggilan_wanita}</p>
+              </div>
+              <p className={`${marcellus.className} text-base text-black`}>
+                {formatDate(dataMempelai.timeline)}
+              </p>
+              <Lottie
+                animationData={arrowDown}
+                loop={true}
+                autoPlay={true}
+                color="#000"
+              />
+            </motion.div>
+          )}
         </div>
       )}
     </>

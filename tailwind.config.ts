@@ -12,11 +12,14 @@ const config: Config = {
         primary: "#9A6E76",
         whiteSmooke: "#E6DED8",
         black: "#181818",
-        gradient: "linear-gradient(200deg, #BA9C9D 0%, #9A6E76 100%);",
       },
       boxShadow: {
         sm: "0px 0px 30px 0px rgba(0, 0, 0, 0.5);",
         md: "2px 2px 5px -2px rgba(0, 0, 0, 0.5);",
+      },
+      backgroundImage: {
+        // gradient: "linear-gradient(200deg, #BA9C9D 0%, #9A6E76 100%);",
+        gradient: "linear-gradient(180deg, #E6DED88F 0%, #E6DED8 100%)",
       },
     },
   },

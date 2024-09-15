@@ -35,7 +35,7 @@ const Gallery = () => {
                   gallery.map((d) => d.image)
                 )
               }
-              className="w-full h-full overflow-hidden rounded-md"
+              className="w-full h-full overflow-hidden rounded-md cursor-pointer"
             >
               <Image
                 src={item.image}
@@ -43,6 +43,7 @@ const Gallery = () => {
                 width={0}
                 height={0}
                 sizes="100vw"
+                className="hover:scale-110 transition-all"
               />
             </div>
           ))}

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply max-w-md mx-auto;
+    @apply max-w-[431px] mx-auto;
   }
 
   img {

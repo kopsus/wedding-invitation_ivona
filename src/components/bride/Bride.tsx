@@ -26,83 +26,73 @@ const Bride = () => {
         <p className={`${marcellus.className} text-[35px] text-primary`}>
           Groom & Bride
         </p>
-        {dataMempelai.map((item, index) => (
-          <div key={index} className="flex flex-col items-center gap-10">
-            <div className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full">
-              <Image
-                src={item.foto_pria}
-                alt=""
-                width={0}
-                height={0}
-                sizes="100vw"
-              />
-            </div>
-            <div className="flex flex-col gap-5 items-center">
-              <p
-                className={`${aston_script.className} text-primary text-[32px]`}
-              >
-                {item.nama_panggilan_pria}
-              </p>
-              <p
-                className={`${montserrat_semi.className} text-black leading-6`}
-              >
-                {item.nama_lengkap_pria}
-              </p>
-              <div
-                className={`${montserrat_regular.className} text-sm text-center text-black leading-7`}
-              >
-                <p>{item.nama_ayah_pria}</p>
-                <p>& {item.nama_ibu_pria}</p>
-              </div>
-              <Link href={item.instagram_pria}>
-                <FaInstagram
-                  color="white"
-                  size={40}
-                  className="bg-primary p-2 rounded-full cursor-pointer"
-                />
-              </Link>
-            </div>
-            <h2
-              className={`${marcellus.className} text-primary text-[65px] text-center`}
-            >
-              &
-            </h2>
-            <div className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full">
-              <Image
-                src={item.foto_wanita}
-                alt=""
-                width={0}
-                height={0}
-                sizes="100vw"
-              />
-            </div>
-            <div className="flex flex-col gap-5 items-center">
-              <p
-                className={`${aston_script.className} text-primary text-[32px]`}
-              >
-                {item.nama_panggilan_wanita}
-              </p>
-              <p
-                className={`${montserrat_semi.className} text-black leading-6`}
-              >
-                {item.nama_lengkap_Wanita}
-              </p>
-              <div
-                className={`${montserrat_regular.className} text-sm text-center text-black leading-7`}
-              >
-                <p>{item.nama_ayah_wanita}</p>
-                <p>& {item.nama_ibu_wanita}</p>
-              </div>
-              <Link href={item.instagram_wanita}>
-                <FaInstagram
-                  color="white"
-                  size={40}
-                  className="bg-primary p-2 rounded-full cursor-pointer"
-                />
-              </Link>
-            </div>
+        <div className="flex flex-col items-center gap-10">
+          <div className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full">
+            <Image
+              src={dataMempelai.foto_pria}
+              alt=""
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
           </div>
-        ))}
+          <div className="flex flex-col gap-5 items-center">
+            <p className={`${aston_script.className} text-primary text-[32px]`}>
+              {dataMempelai.nama_panggilan_pria}
+            </p>
+            <p className={`${montserrat_semi.className} text-black leading-6`}>
+              {dataMempelai.nama_lengkap_pria}
+            </p>
+            <div
+              className={`${montserrat_regular.className} text-sm text-center text-black leading-7`}
+            >
+              <p>{dataMempelai.nama_ayah_pria}</p>
+              <p>& {dataMempelai.nama_ibu_pria}</p>
+            </div>
+            <Link href={dataMempelai.instagram_pria}>
+              <FaInstagram
+                color="white"
+                size={40}
+                className="bg-primary p-2 rounded-full cursor-pointer"
+              />
+            </Link>
+          </div>
+          <h2
+            className={`${marcellus.className} text-primary text-[65px] text-center`}
+          >
+            &
+          </h2>
+          <div className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full">
+            <Image
+              src={dataMempelai.foto_wanita}
+              alt=""
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
+          </div>
+          <div className="flex flex-col gap-5 items-center">
+            <p className={`${aston_script.className} text-primary text-[32px]`}>
+              {dataMempelai.nama_panggilan_wanita}
+            </p>
+            <p className={`${montserrat_semi.className} text-black leading-6`}>
+              {dataMempelai.nama_lengkap_Wanita}
+            </p>
+            <div
+              className={`${montserrat_regular.className} text-sm text-center text-black leading-7`}
+            >
+              <p>{dataMempelai.nama_ayah_wanita}</p>
+              <p>& {dataMempelai.nama_ibu_wanita}</p>
+            </div>
+            <Link href={dataMempelai.instagram_wanita}>
+              <FaInstagram
+                color="white"
+                size={40}
+                className="bg-primary p-2 rounded-full cursor-pointer"
+              />
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

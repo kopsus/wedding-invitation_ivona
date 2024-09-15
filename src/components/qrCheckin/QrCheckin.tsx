@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import bgImg from "@/../public/images/pink-forest2.jpg";
-import Button from "../_global/Button";
-import { FaGift, FaVideo } from "react-icons/fa";
-import { marcellus, montserrat_regular } from "@/utils/fonts";
-import ModalGift from "./ModalGift";
 import Link from "next/link";
+import Button from "../_global/Button";
+import { FaInstagram, FaQrcode } from "react-icons/fa";
+import { marcellus, montserrat_regular } from "@/utils/fonts";
+import ModalQr from "./ModalQr";
 
-const Gift = () => {
+const QrCheckin = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -22,28 +22,7 @@ const Gift = () => {
           <p
             className={`${marcellus.className} text-[33px] leading-6 text-black`}
           >
-            Wedding Gift
-          </p>
-          <p
-            className={`${montserrat_regular.className} text-sm text-black leading-7`}
-          >
-            Your presence is a present in itself. But if you do wish to give us
-            something else, please tap the button down below for further
-            information:
-          </p>
-          <Button
-            className="bg-primary text-white hover:scale-110 transition-all"
-            iconLeft={<FaGift color="#fff" size={16} />}
-            onClick={() => setOpenModal(true)}
-          >
-            Wedding Gift
-          </Button>
-        </div>
-        <div className="bg-whiteSmooke rounded-[20px] border-8 border-primary py-[50px] px-5 flex flex-col items-center gap-5 text-center">
-          <p
-            className={`${marcellus.className} text-[33px] leading-6 text-black`}
-          >
-            Live Streaming
+            Instagram Filter
           </p>
           <p
             className={`${montserrat_regular.className} text-sm text-black leading-7`}
@@ -55,16 +34,37 @@ const Gift = () => {
           <Link href={"/https://www.instagram.com/"} target="_blank">
             <Button
               className="bg-primary text-white hover:scale-110 transition-all"
-              iconLeft={<FaVideo color="#fff" size={16} />}
+              iconLeft={<FaInstagram color="#fff" size={16} />}
             >
-              Live Streaming
+              Wedding Filter
             </Button>
           </Link>
         </div>
+        <div className="bg-whiteSmooke rounded-[20px] border-8 border-primary py-[50px] px-5 flex flex-col items-center gap-5 text-center">
+          <p
+            className={`${marcellus.className} text-[33px] leading-6 text-black`}
+          >
+            Qr Chechk in
+          </p>
+          <p
+            className={`${montserrat_regular.className} text-sm text-black leading-7`}
+          >
+            Your presence is a present in itself. But if you do wish to give us
+            something else, please tap the button down below for further
+            information:
+          </p>
+          <Button
+            className="bg-primary text-white hover:scale-110 transition-all"
+            iconLeft={<FaQrcode color="#fff" size={16} />}
+            onClick={() => setOpenModal(true)}
+          >
+            Download QR
+          </Button>
+        </div>
       </div>
-      {openModal && <ModalGift closeModal={() => setOpenModal(false)} />}
+      {openModal && <ModalQr closeModal={() => setOpenModal(false)} />}
     </div>
   );
 };
 
-export default Gift;
+export default QrCheckin;

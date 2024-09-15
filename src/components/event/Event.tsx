@@ -94,8 +94,9 @@ const Event = () => {
                     {item.maps}
                   </p>
                   <Button
-                    className={`${montserrat_medium.className} text-white bg-primary px-[35px] mt-5 hover:scale-110 transition-all`}
-                    iconLeft={<FaMapMarkerAlt size={24} color="#fff" />}
+                    className={`${montserrat_medium.className} text-white bg-primary py-[14px] px-[35px] 
+                    rounded-[25px] mt-5 hover:scale-110 transition-all`}
+                    iconLeft={<FaMapMarkerAlt size={16} color="#fff" />}
                   >
                     Open Maps
                   </Button>

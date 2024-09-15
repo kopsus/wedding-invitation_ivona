@@ -5,24 +5,21 @@ const data = () => {
     video: "/video/video.mp4",
   };
 
-  const dataMempelai = [
-    {
-      id: "1",
-      nama_lengkap_pria: "Jay See Low",
-      nama_lengkap_Wanita: "Micheala Jesisca",
-      nama_panggilan_pria: "Jay See",
-      nama_panggilan_wanita: "Micheala",
-      nama_ayah_pria: "Eldest Son of Mr. Swee Lik Low",
-      nama_ibu_pria: "Mrs. Sock Tin Tan",
-      nama_ayah_wanita: "Eldest Son of Mr. Swee Lik Low",
-      nama_ibu_wanita: "Mrs. Sock Tin Tan",
-      instagram_pria: "https://www.instagram.com/",
-      instagram_wanita: "https://www.instagram.com/",
-      timeline: "2025-6-28",
-      foto_pria: "/images/groom.webp",
-      foto_wanita: "/images/bride.webp",
-    },
-  ];
+  const dataMempelai = {
+    nama_lengkap_pria: "Jay See Low",
+    nama_lengkap_Wanita: "Micheala Jesisca",
+    nama_panggilan_pria: "Jay See",
+    nama_panggilan_wanita: "Micheala",
+    nama_ayah_pria: "Eldest Son of Mr. Swee Lik Low",
+    nama_ibu_pria: "Mrs. Sock Tin Tan",
+    nama_ayah_wanita: "Eldest Son of Mr. Swee Lik Low",
+    nama_ibu_wanita: "Mrs. Sock Tin Tan",
+    instagram_pria: "https://www.instagram.com/",
+    instagram_wanita: "https://www.instagram.com/",
+    timeline: "2025-6-28",
+    foto_pria: "/images/groom.webp",
+    foto_wanita: "/images/bride.webp",
+  };
 
   const weddingEvent = [
     {
@@ -152,6 +149,14 @@ const data = () => {
           "At the beginning of our acquaintance, we were in the same class when we were in college. He sent a private chat because he knew that we were from the same city. From there we got to know each other.",
       },
     ],
+    image2: "/images/groom&bride2.jpg",
+  };
+
+  const timeline = {
+    detailInvite:
+      "We invite you to join our happy day. Your presence at our wedding is an honor for us",
+    startDate: "2024-09-22T13:00:00",
+    endDate: "2024-12-12T16:00:00",
   };
 
   return {
@@ -163,6 +168,7 @@ const data = () => {
     youtubeLink,
     gallery,
     loveStory,
+    timeline,
   };
 };
 
