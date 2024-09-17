@@ -25,12 +25,15 @@ import QrCheckin from "../qrCheckin/QrCheckin";
 import Timeline from "../timeline/Timeline";
 import Footer from "../footer/Footer";
 import Audio from "../audio/Audio";
+import { useSearchParams } from "next/navigation";
 
 const Cover = () => {
   const { dataMempelai, dataCover } = data();
   const [isOpen, setIsOpen] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const searchParams = useSearchParams();
+  const guestName = searchParams.get("to") || "Guest Name";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -95,7 +98,7 @@ const Cover = () => {
               className={`${montserrat_semi.className} text-[15px] text-black text-center`}
             >
               <p>Dear</p>
-              <p>Guest Name</p>
+              <p>{guestName}</p>
             </div>
             <Button
               onClick={handleClick}
@@ -158,7 +161,7 @@ const Cover = () => {
           <Gallery />
           <Rsvp />
           <LoveStory />
-          <QrCheckin />
+          <QrCheckin guestName={guestName} />
           <Timeline />
           <Footer />
           <Audio

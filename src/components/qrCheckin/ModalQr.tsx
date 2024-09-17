@@ -13,13 +13,21 @@ import { MdOutlineCancel } from "react-icons/md";
 import Button from "../_global/Button";
 import { FaDownload } from "react-icons/fa";
 import { useQRCode } from "next-qrcode";
+import data from "@/utils/data";
+import { format } from "date-fns";
 
 interface IModalQr {
   closeModal: () => void;
+  guestName: string;
 }
 
-const ModalQr = ({ closeModal }: IModalQr) => {
+const ModalQr = ({ closeModal, guestName }: IModalQr) => {
   const { Canvas } = useQRCode();
+  const { dataMempelai } = data();
+  const formattedDate = format(
+    new Date(dataMempelai.timeline),
+    "EEEE, dd MMMM yyyy"
+  );
 
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -49,10 +57,11 @@ const ModalQr = ({ closeModal }: IModalQr) => {
             <p
               className={`${marcellus.className} font-medium text-[28px] text-white`}
             >
-              Jay See & Micheala
+              {dataMempelai.nama_panggilan_pria} &{" "}
+              {dataMempelai.nama_panggilan_wanita}
             </p>
             <p className={`${montserrat_regular.className} text-sm text-white`}>
-              Sunday, 22 September 2024
+              {formattedDate}
             </p>
           </div>
           <div className="bg-[#E6DED8]">
@@ -65,19 +74,27 @@ const ModalQr = ({ closeModal }: IModalQr) => {
                   <p
                     className={`${playfair_display.className} text-lg text-black`}
                   >
-                    Guest Name
+                    {guestName}
                   </p>
                 </div>
-                <div className="flex-1">
-                  <Canvas
-                    text={"guestName"}
-                    options={{
-                      errorCorrectionLevel: "M",
-                      margin: 2,
-                      scale: 4,
-                      width: 170,
-                    }}
-                  />
+                <div
+                  className={`${
+                    guestName === "Guest Name"
+                      ? "h-44 w-44 flex-1 border border-primary"
+                      : ""
+                  }`}
+                >
+                  {guestName !== "Guest Name" && (
+                    <Canvas
+                      text={guestName}
+                      options={{
+                        errorCorrectionLevel: "M",
+                        margin: 2,
+                        scale: 4,
+                        width: 170,
+                      }}
+                    />
+                  )}
                 </div>
               </div>
               <p

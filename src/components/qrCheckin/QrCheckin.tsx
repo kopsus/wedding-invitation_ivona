@@ -8,7 +8,11 @@ import { FaInstagram, FaQrcode } from "react-icons/fa";
 import { marcellus, montserrat_regular } from "@/utils/fonts";
 import ModalQr from "./ModalQr";
 
-const QrCheckin = () => {
+interface IQrCheckin {
+  guestName: string;
+}
+
+const QrCheckin = ({ guestName }: IQrCheckin) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -62,7 +66,9 @@ const QrCheckin = () => {
           </Button>
         </div>
       </div>
-      {openModal && <ModalQr closeModal={() => setOpenModal(false)} />}
+      {openModal && (
+        <ModalQr closeModal={() => setOpenModal(false)} guestName={guestName} />
+      )}
     </div>
   );
 };
