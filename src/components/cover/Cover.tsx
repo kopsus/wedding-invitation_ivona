@@ -44,14 +44,6 @@ const Cover = () => {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
-  const contentRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (showContent && contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [showContent]);
-
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -153,7 +145,7 @@ const Cover = () => {
         </div>
       )}
       {showContent && (
-        <div ref={contentRef}>
+        <div>
           <EndlessLove />
           <Bride />
           <Event />
