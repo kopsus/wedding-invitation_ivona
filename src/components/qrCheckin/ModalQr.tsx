@@ -14,7 +14,7 @@ import Button from "../_global/Button";
 import { FaDownload } from "react-icons/fa";
 import { useQRCode } from "next-qrcode";
 import data from "@/utils/data";
-import { format } from "date-fns";
+import { formatDateTimeline } from "@/utils/formatDate";
 
 interface IModalQr {
   closeModal: () => void;
@@ -24,10 +24,6 @@ interface IModalQr {
 const ModalQr = ({ closeModal, guestName }: IModalQr) => {
   const { Canvas } = useQRCode();
   const { dataMempelai } = data();
-  const formattedDate = format(
-    new Date(dataMempelai.timeline),
-    "EEEE, dd MMMM yyyy"
-  );
 
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -61,7 +57,7 @@ const ModalQr = ({ closeModal, guestName }: IModalQr) => {
               {dataMempelai.nama_panggilan_wanita}
             </p>
             <p className={`${montserrat_regular.className} text-sm text-white`}>
-              {formattedDate}
+              {formatDateTimeline(dataMempelai.timeline)}
             </p>
           </div>
           <div className="bg-[#E6DED8]">

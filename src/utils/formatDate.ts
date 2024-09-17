@@ -12,6 +12,17 @@ export const formatDate = (dateString: string | number | Date) => {
   return `${formattedDay} . ${formattedMonth} . ${formattedYear}`;
 };
 
+export function formatDateTimeline(dateString: string | number | Date): string {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", options);
+}
+
 export function formatDateAndDay(dateString: string) {
   const date = new Date(dateString);
 
