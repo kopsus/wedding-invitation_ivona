@@ -163,6 +163,37 @@ const data = () => {
     audio: "/audio/Indonesia-Raya.mp3",
   };
 
+  const rsvp = [
+    {
+      id: "f33e",
+      nama: "test",
+      ucapan: "asd",
+      konfirmasi_kehadiran: "Hadir",
+      waktu_submit: "2024-08-19T12:04:19.406Z",
+    },
+    {
+      id: "a65d",
+      nama: "s",
+      ucapan: "s",
+      konfirmasi_kehadiran: "Tidak Hadir",
+      waktu_submit: "2024-08-19T12:18:11.143Z",
+    },
+    {
+      id: "3dff",
+      nama: "cas",
+      ucapan: "asd",
+      konfirmasi_kehadiran: "Masih Ragu",
+      waktu_submit: "2024-08-19T12:18:16.687Z",
+    },
+    {
+      id: "6580",
+      nama: "asdasd",
+      ucapan: "asdasda",
+      konfirmasi_kehadiran: "Hadir",
+      waktu_submit: "2024-08-20T16:40:28.253Z",
+    },
+  ];
+
   return {
     dataMempelai,
     dataCover,
@@ -174,6 +205,7 @@ const data = () => {
     loveStory,
     timeline,
     audio,
+    rsvp,
   };
 };
 

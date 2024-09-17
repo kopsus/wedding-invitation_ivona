@@ -5,34 +5,17 @@ import Image from "next/image";
 import {
   marcellus,
   montserrat_regular,
+  poppinsLight,
   raleway_light,
-  roboto_light,
-  roboto_regular,
 } from "@/utils/fonts";
+import FormAddRsvp from "./FormAddRsvp";
+import CommentItem from "./CommentItem";
+import data from "@/utils/data";
 
 const Rsvp = () => {
-  const totalGuest = [
-    {
-      id: "1",
-      total: 1,
-    },
-    {
-      id: "2",
-      total: 2,
-    },
-    {
-      id: "3",
-      total: 3,
-    },
-    {
-      id: "4",
-      total: 4,
-    },
-    {
-      id: "5",
-      total: 5,
-    },
-  ];
+  const { rsvp: dataKehadiran } = data();
+  const countKehadiran = (status: string) =>
+    dataKehadiran.filter((item) => item.konfirmasi_kehadiran === status).length;
 
   return (
     <>
@@ -41,78 +24,62 @@ const Rsvp = () => {
           className="absolute top-0 left-0 w-full h-full bg-center opacity-30 bg-cover bg-no-repeat"
           style={{ backgroundImage: `url(${bgImg.src})` }}
         ></div>
-        <div className="relative px-5 mb-[75px]">
-          <div className="flex flex-col gap-5 items-center text-center">
+        <div className="relative px-5">
+          <div className="flex flex-col gap-2 text-center pb-5">
             <p
-              className={`${marcellus.className} text-[#000] font-semibold text-[35px] leading-6`}
+              className={`${marcellus.className} text-[32px] font-medium text-primary leading-8`}
             >
-              RSVP FORM
+              Rsvp
             </p>
             <p
-              className={`${montserrat_regular.className} text-sm text-black leading-6`}
+              className={`${montserrat_regular.className} text-[32px] font-semibold text-white leading-8`}
             >
-              Please help us prepare everything better by confirming your
-              attendance at our wedding event with the following RSVP form:
+              Ucaparan
+            </p>
+            <p
+              className={`${raleway_light.className} font-medium leading-6 text-white`}
+            >
+              Konfirmasi Kehadiran & Ucapan Selamat
             </p>
           </div>
-          <form className="flex flex-col gap-3">
-            <div className="flex flex-col">
-              <label
-                className={`${roboto_regular.className} text-sm text-[#493830]`}
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                className={`${raleway_light.className} w-full bg-[#FFFFFFF0] border-white outline-none p-2 text-sm`}
-              />
+          <div className="bg-[#eeeeeb] mx-auto rounded-lg">
+            <div className="pt-3  border-b border-slate-200">
+              <p className="text-center text-primary font-medium">Comment</p>
+              <div className="grid grid-cols-3 mx-auto gap-5 w-[80%] text-[#b096a4]">
+                <div className="text-center border border-[#b096a4] p-2 rounded-md my-5">
+                  <p className="text-lg font-bold leading-7">
+                    {countKehadiran("Hadir")}
+                  </p>
+                  <p className={`${poppinsLight.className} text-xs`}>Hadir</p>
+                </div>
+                <div className="text-center border border-[#b096a4] p-2 rounded-md my-5">
+                  <p className="text-lg font-bold leading-7">
+                    {countKehadiran("Tidak Hadir")}
+                  </p>
+                  <p className={`${poppinsLight.className} text-xs`}>
+                    Tidak Hadir
+                  </p>
+                </div>
+                <div className="text-center border border-[#b096a4] p-2 rounded-md my-5">
+                  <p className="text-lg font-bold leading-7">
+                    {countKehadiran("Masih Ragu")}
+                  </p>
+                  <p className={`${poppinsLight.className} text-xs`}>
+                    Masih Ragu
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <label
-                className={`${roboto_regular.className} text-sm text-[#493830]`}
-              >
-                Amount of guest
-              </label>
-              <select
-                className={`${raleway_light.className} w-full bg-[#FFFFFFF0] border-white outline-none p-2 text-sm`}
-              >
-                {totalGuest.map((item, index) => (
-                  <option key={index} value={item.id}>
-                    {item.total}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="flex flex-col">
-              <label
-                className={`${roboto_regular.className} text-sm text-[#493830]`}
-              >
-                Address
-              </label>
-              <input
-                type="text"
-                className={`${raleway_light.className} w-full bg-[#FFFFFFF0] border-white outline-none p-2 text-sm`}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label
-                className={`${roboto_regular.className} text-sm text-[#493830]`}
-              >
-                Will you attend
-              </label>
-              <select
-                className={`${raleway_light.className} w-full bg-[#FFFFFFF0] border-white outline-none p-2 text-sm`}
-              >
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-            <button
-              className={`${roboto_light.className} text-sm bg-black py-2 text-white`}
+            <FormAddRsvp />
+            <div
+              className="max-h-52 overflow-y-auto"
+              style={{ scrollbarWidth: "none" }}
             >
-              Submit
-            </button>
-          </form>
+              {dataKehadiran.map((value, index) => (
+                <CommentItem value={value} key={index} />
+              ))}
+            </div>
+          </div>
         </div>
         <div className="overflow-hidden w-full h-full">
           <Image src={imgBottom} alt="" width={0} height={0} sizes="100vw" />

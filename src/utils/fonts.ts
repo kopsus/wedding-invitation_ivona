@@ -110,3 +110,9 @@ export const poppins = Poppins({
   style: "normal",
   subsets: ["latin"],
 });
+
+export const poppinsLight = Poppins({
+  weight: "300",
+  style: "normal",
+  subsets: ["latin"],
+});
