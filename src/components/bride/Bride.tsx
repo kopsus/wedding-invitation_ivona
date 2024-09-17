@@ -10,6 +10,8 @@ import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
 import data from "@/utils/data";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, showZoomIn } from "@/utils/animatios";
 
 const Bride = () => {
   const { dataMempelai } = data();
@@ -23,11 +25,25 @@ const Bride = () => {
         }}
       ></div>
       <div className="relative w-full h-full flex flex-col gap-10 justify-center items-center">
-        <p className={`${marcellus.className} text-[35px] text-primary`}>
+        <motion.p
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className={`${marcellus.className} text-[35px] text-primary`}
+        >
           Groom & Bride
-        </p>
+        </motion.p>
         <div className="flex flex-col items-center gap-10">
-          <div className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full">
+          <motion.div
+            variants={showZoomIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full"
+          >
             <Image
               src={dataMempelai.foto_pria}
               alt=""
@@ -35,34 +51,68 @@ const Bride = () => {
               height={0}
               sizes="100vw"
             />
-          </div>
+          </motion.div>
           <div className="flex flex-col gap-5 items-center">
-            <p className={`${aston_script.className} text-primary text-[32px]`}>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className={`${aston_script.className} text-primary text-[32px]`}
+            >
               {dataMempelai.nama_panggilan_pria}
-            </p>
-            <p className={`${montserrat_semi.className} text-black leading-6`}>
+            </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className={`${montserrat_semi.className} text-black leading-6`}
+            >
               {dataMempelai.nama_lengkap_pria}
-            </p>
-            <div
+            </motion.p>
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
               className={`${montserrat_regular.className} text-sm text-center text-black leading-7`}
             >
               <p>{dataMempelai.nama_ayah_pria}</p>
               <p>& {dataMempelai.nama_ibu_pria}</p>
-            </div>
-            <Link href={dataMempelai.instagram_pria}>
-              <FaInstagram
-                color="white"
-                size={40}
-                className="bg-primary p-2 rounded-full cursor-pointer"
-              />
-            </Link>
+            </motion.div>
+            <motion.div
+              variants={showZoomIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <Link href={dataMempelai.instagram_pria}>
+                <FaInstagram
+                  color="white"
+                  size={40}
+                  className="bg-primary p-2 rounded-full cursor-pointer"
+                />
+              </Link>
+            </motion.div>
           </div>
           <h2
             className={`${marcellus.className} text-primary text-[65px] text-center`}
           >
             &
           </h2>
-          <div className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full">
+          <motion.div
+            variants={showZoomIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="overflow-hidden w-[90%] border-8 border-whiteSmooke shadow-sm rounded-full"
+          >
             <Image
               src={dataMempelai.foto_wanita}
               alt=""
@@ -70,27 +120,54 @@ const Bride = () => {
               height={0}
               sizes="100vw"
             />
-          </div>
+          </motion.div>
           <div className="flex flex-col gap-5 items-center">
-            <p className={`${aston_script.className} text-primary text-[32px]`}>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className={`${aston_script.className} text-primary text-[32px]`}
+            >
               {dataMempelai.nama_panggilan_wanita}
-            </p>
-            <p className={`${montserrat_semi.className} text-black leading-6`}>
+            </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className={`${montserrat_semi.className} text-black leading-6`}
+            >
               {dataMempelai.nama_lengkap_Wanita}
-            </p>
-            <div
+            </motion.p>
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
               className={`${montserrat_regular.className} text-sm text-center text-black leading-7`}
             >
               <p>{dataMempelai.nama_ayah_wanita}</p>
               <p>& {dataMempelai.nama_ibu_wanita}</p>
-            </div>
-            <Link href={dataMempelai.instagram_wanita}>
-              <FaInstagram
-                color="white"
-                size={40}
-                className="bg-primary p-2 rounded-full cursor-pointer"
-              />
-            </Link>
+            </motion.div>
+            <motion.div
+              variants={showZoomIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <Link href={dataMempelai.instagram_wanita}>
+                <FaInstagram
+                  color="white"
+                  size={40}
+                  className="bg-primary p-2 rounded-full cursor-pointer"
+                />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>

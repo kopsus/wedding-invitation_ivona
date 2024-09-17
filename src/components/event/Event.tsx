@@ -15,6 +15,8 @@ import { SlCalender } from "react-icons/sl";
 import data from "@/utils/data";
 import { formatDateAndDay } from "@/utils/formatDate";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, showZoomIn } from "@/utils/animatios";
 
 const Event = () => {
   const { weddingEvent } = data();
@@ -26,23 +28,32 @@ const Event = () => {
       </div>
       <div className="w-full bg-primary py-[75px] px-5 min-h-screen flex flex-col gap-5">
         <div className="text-center flex flex-col gap-3">
-          <p
+          <motion.p
+            variants={showZoomIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className={`${aston_script.className} text-[32px] text-whiteSmooke`}
           >
             Wedding Event
-          </p>
-          <p
+          </motion.p>
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className={`${montserrat_regular.className} text-sm text-white leading-7`}
           >
             By the grace of God, we are pleased to announce our wedding to you,
             our family, and our friends. We request the honor of your presence
             on our special day that will be held on:
-          </p>
+          </motion.p>
         </div>
 
         {weddingEvent.map((item, index) => {
           const { formattedDate, day } = formatDateAndDay(item.date);
-
           return (
             <div
               key={index}
@@ -55,19 +66,36 @@ const Event = () => {
                 }}
               ></div>
               <div className="relative w-full h-full flex flex-col gap-5 justify-center items-center">
-                <p
+                <motion.p
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
                   className={`${marcellus.className} text-[32px] leading-5 text-primary mb-4`}
                 >
                   {item.title}
-                </p>
-                <div className="flex items-center gap-2 w-1/2">
+                </motion.p>
+                <motion.div
+                  variants={showZoomIn}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                  className="flex items-center gap-2 w-1/2"
+                >
                   <span className="bg-black w-full h-[1px]"></span>
                   <span>
                     <SlCalender size={24} />
                   </span>
                   <span className="bg-black w-full h-[1px]"></span>
-                </div>
-                <div
+                </motion.div>
+                <motion.div
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
                   className={`${montserrat_semi.className} text-lg uppercase flex flex-col items-center gap-2`}
                 >
                   <p>{day}</p>
@@ -75,37 +103,62 @@ const Event = () => {
                   <p>
                     {item.timeStart} - {item.timeEnd} WIB
                   </p>
-                </div>
-                <div className="flex items-center gap-2 w-1/2">
+                </motion.div>
+                <motion.div
+                  variants={showZoomIn}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                  className="flex items-center gap-2 w-1/2"
+                >
                   <span className="bg-black w-full h-[1px]"></span>
                   <span>
                     <FaHotel size={24} />
                   </span>
                   <span className="bg-black w-full h-[1px]"></span>
-                </div>
+                </motion.div>
                 <div className="text-center flex flex-col items-center">
-                  <p
+                  <motion.p
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
                     className={`${montserrat_semi.className} text-sm leading-7`}
                   >
                     {item.place}
-                  </p>
-                  <p
+                  </motion.p>
+                  <motion.p
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
                     className={`${montserrat_regular.className} text-sm leading-7`}
                   >
                     {item.maps}
-                  </p>
-                  <Link
-                    href={`https://www.google.com/maps/place/${item.maps}`}
-                    target="_blank"
+                  </motion.p>
+                  <motion.div
+                    variants={showZoomIn}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
                   >
-                    <Button
-                      className={`${montserrat_medium.className} text-white bg-primary py-[14px] px-[35px] 
-                    rounded-[25px] mt-5 hover:scale-110 transition-all`}
-                      iconLeft={<FaMapMarkerAlt size={16} color="#fff" />}
+                    <Link
+                      href={`https://www.google.com/maps/place/${item.maps}`}
+                      target="_blank"
                     >
-                      Open Maps
-                    </Button>
-                  </Link>
+                      <Button
+                        className={`${montserrat_medium.className} text-white bg-primary py-[14px] px-[35px] 
+                    rounded-[25px] mt-5 hover:scale-110 transition-all`}
+                        iconLeft={<FaMapMarkerAlt size={16} color="#fff" />}
+                      >
+                        Open Maps
+                      </Button>
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </div>

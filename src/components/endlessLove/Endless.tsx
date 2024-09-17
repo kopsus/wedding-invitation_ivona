@@ -7,6 +7,8 @@ import {
   montserrat_bold,
   montserrat_regular,
 } from "@/utils/fonts";
+import { motion } from "framer-motion";
+import { fadeInUp, showZoomIn } from "@/utils/animatios";
 
 const EndlessLove = () => {
   return (
@@ -19,25 +21,49 @@ const EndlessLove = () => {
           }}
         ></div>
         <div className="relative w-full h-full flex flex-col gap-5 justify-center items-center">
-          <div className="overflow-hidden w-full h-full">
+          <motion.div
+            variants={showZoomIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="overflow-hidden w-full h-full"
+          >
             <Image src={imgbride} alt="" width={0} height={0} sizes="100vw" />
-          </div>
-          <p className={`${aston_script.className} text-primary text-[32px]`}>
+          </motion.div>
+          <motion.p
+            variants={showZoomIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className={`${aston_script.className} text-primary text-[32px]`}
+          >
             Endless Love
-          </p>
-          <p
+          </motion.p>
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className={`${montserrat_regular.className} text-black text-sm text-center leading-7`}
           >
             “Above all, clothe yourselves with love, which binds everything
             together in perfect harmony. And let the peace of Christ rule in
             your hearts, to which indeed you were called in the one body. And be
             thankful.”
-          </p>
-          <p
+          </motion.p>
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
             className={`${montserrat_bold.className} text-black text-sm leading-7`}
           >
             Colossians 3:14-15
-          </p>
+          </motion.p>
         </div>
       </div>
     </div>
