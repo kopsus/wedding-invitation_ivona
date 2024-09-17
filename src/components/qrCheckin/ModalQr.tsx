@@ -1,20 +1,10 @@
-import {
-  abhaya_libre,
-  lato,
-  marcellus,
-  montserrat_regular,
-  playfair_display,
-  roboto_light,
-  roboto_regular,
-} from "@/utils/fonts";
-import Link from "next/link";
-import React from "react";
+import React, { useCallback, useRef } from "react";
+import { toPng } from "html-to-image";
 import { MdOutlineCancel } from "react-icons/md";
 import Button from "../_global/Button";
 import { FaDownload } from "react-icons/fa";
-import { useQRCode } from "next-qrcode";
-import data from "@/utils/data";
-import { formatDateTimeline } from "@/utils/formatDate";
+import EInvitation from "./EInvitation";
+import { abhaya_libre, lato } from "@/utils/fonts";
 
 interface IModalQr {
   closeModal: () => void;
@@ -22,8 +12,24 @@ interface IModalQr {
 }
 
 const ModalQr = ({ closeModal, guestName }: IModalQr) => {
-  const { Canvas } = useQRCode();
-  const { dataMempelai } = data();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = `${guestName} E-Invitation`;
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [guestName]);
 
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -43,77 +49,12 @@ const ModalQr = ({ closeModal, guestName }: IModalQr) => {
             the event location.
           </p>
         </div>
-        <div className="my-5">
-          <div className="bg-primary py-[30px] px-[5px] text-center flex flex-col gap-3">
-            <p
-              className={`${montserrat_regular.className} text-base text-white`}
-            >
-              The Wedding Of
-            </p>
-            <p
-              className={`${marcellus.className} font-medium text-[28px] text-white`}
-            >
-              {dataMempelai.nama_panggilan_pria} &{" "}
-              {dataMempelai.nama_panggilan_wanita}
-            </p>
-            <p className={`${montserrat_regular.className} text-sm text-white`}>
-              {formatDateTimeline(dataMempelai.timeline)}
-            </p>
-          </div>
-          <div className="bg-[#E6DED8]">
-            <div className="pt-4 px-3">
-              <div className="flex items-center">
-                <div className="text-center flex-1">
-                  <p className={`${roboto_light.className} text-black text-sm`}>
-                    Dear:{" "}
-                  </p>
-                  <p
-                    className={`${playfair_display.className} text-lg text-black`}
-                  >
-                    {guestName}
-                  </p>
-                </div>
-                <div
-                  className={`${
-                    guestName === "Guest Name"
-                      ? "h-44 w-44 flex-1 border border-primary"
-                      : ""
-                  }`}
-                >
-                  {guestName !== "Guest Name" && (
-                    <Canvas
-                      text={guestName}
-                      options={{
-                        errorCorrectionLevel: "M",
-                        margin: 2,
-                        scale: 4,
-                        width: 170,
-                      }}
-                    />
-                  )}
-                </div>
-              </div>
-              <p
-                className={`${roboto_light.className} text-black leading-6 px-3 my-5 text-center`}
-              >
-                Please show this QR Code to the officer at the event location.
-                Scan QR Code is used to record attendance and exchange
-                souvenirs.
-              </p>
-            </div>
-            <hr className="border border-dashed border-black" />
-            <div className="flex justify-center py-3">
-              <Link
-                href={"https://www.tibradigital.id"}
-                className={`${roboto_regular.className} text-sm text-black text-center`}
-              >
-                www.tibradigital.id
-              </Link>
-            </div>
-          </div>
+        <div ref={ref}>
+          <EInvitation guestName={guestName} />
         </div>
         <div className="flex justify-center">
           <Button
+            onClick={onButtonClick}
             iconLeft={<FaDownload size={20} color="#fff" />}
             className="bg-black rounded-none text-white"
           >
