@@ -32,21 +32,24 @@ function BannerWedding() {
     <div
       className={`${marcellus.className} relative min-h-screen w-full bg-cover bg-no-repeat bg-center`}
     >
-      {currentBanner.type === "video" ? (
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={currentBanner.img}
-          autoPlay
-          muted
-          playsInline
-          onEnded={handleVideoEnd}
-        />
-      ) : (
-        <div
-          className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center"
-          style={{ backgroundImage: `url(${currentBanner.img})` }}
-        />
-      )}
+      <video
+        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          currentBanner.type === "video" ? "opacity-100" : "opacity-0"
+        }`}
+        src={currentBanner.img}
+        autoPlay
+        muted
+        playsInline
+        onEnded={handleVideoEnd}
+      />
+
+      {/* Container for image */}
+      <div
+        className={`absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center transition-opacity duration-1000 ${
+          currentBanner.type === "image" ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ backgroundImage: `url(${currentBanner.img})` }}
+      />
       <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
       <div className="mx-auto relative text-white h-full grid lg:grid-cols-2 gap-10 p-10">
         <div className="order-2 lg:order-1">
