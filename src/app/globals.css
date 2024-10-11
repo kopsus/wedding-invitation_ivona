@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply max-w-[431px] mx-auto;
+  .container {
+    @apply max-w-[431px] mx-auto !important;
   }
 
   img {
     @apply object-cover w-full h-full block;
   }
+}
+
+* {
+  scrollbar-width: none;
 }

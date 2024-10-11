@@ -194,6 +194,122 @@ const data = () => {
     },
   ];
 
+  const Banner = [
+    {
+      id: "1",
+      img: "/images/bg.jpg",
+      type: "image",
+    },
+    {
+      id: "2",
+      img: "/video/banner_video.mp4",
+      type: "video",
+    },
+  ];
+
+  const TamuHadir = [
+    {
+      id: "1",
+      name: "Dr. Ahmad Zaki Prabowo, M.Si.",
+      vip: true,
+    },
+    {
+      id: "2",
+      name: "Siti Aisyah binti Rahmat, M.Pd.",
+      vip: false,
+    },
+    {
+      id: "3",
+      name: "H. Budi Santoso, S.E., Ak., C.A.",
+      vip: false,
+    },
+    {
+      id: "4",
+      name: "Prof. Dr. Maria Ulfah Sari, S.H., M.H.",
+      vip: false,
+    },
+    {
+      id: "5",
+      name: "Ir. Yulianti Ningsih, M.Sc., P.Eng.",
+      vip: false,
+    },
+    {
+      id: "6",
+      name: "Rudi Hartono, S.T., M.T., C.Eng.",
+      vip: false,
+    },
+    {
+      id: "7",
+      name: "Dra. Anita Sari Putri, M.Psi., Psikolog",
+      vip: false,
+    },
+    {
+      id: "8",
+      name: "Dr. H. Joko Widodo, M.M.",
+      vip: false,
+    },
+    {
+      id: "9",
+      name: "Syaiful Hidayat, S.Pd., M.Pd.",
+      vip: true,
+    },
+    {
+      id: "10",
+      name: "Nani Susanti, M.M., C.P.A.",
+      vip: true,
+    },
+    {
+      id: "11",
+      name: "Dr. Ir. Surya Prabowo, M.T., P.Eng.",
+      vip: false,
+    },
+    {
+      id: "12",
+      name: "Hj. Fatimah binti Ahmad, S.Ag.",
+      vip: false,
+    },
+    {
+      id: "13",
+      name: "Agus Setiawan, S.T., M.Eng., A.Md.",
+      vip: false,
+    },
+    {
+      id: "14",
+      name: "Dra. Lestari Indah, M.Psi., Psikolog",
+      vip: true,
+    },
+    {
+      id: "15",
+      name: "Dr. Citra Anggraini, S.Pd., M.Si.",
+      vip: true,
+    },
+    {
+      id: "16",
+      name: "H. M. Ridwan, S.H., M.H.",
+      vip: true,
+    },
+    {
+      id: "17",
+      name: "Ir. Dewi Lestari, M.A., P.Eng.",
+      vip: true,
+    },
+    {
+      id: "18",
+      name: "Samsul Bahri, S.P., M.Sc., C.P.A.",
+      vip: false,
+    },
+    {
+      id: "19",
+      name: "Dr. Nurdiana Rahman, M.Pd., P.Hd.",
+      vip: false,
+    },
+    {
+      id: "20",
+      name: "Marlina Sari Dewi, S.Sos., M.Si.",
+      vip: false,
+    },
+  ];
+
   return {
     dataMempelai,
     dataCover,
@@ -206,6 +322,8 @@ const data = () => {
     timeline,
     audio,
     rsvp,
+    Banner,
+    TamuHadir,
   };
 };
 

@@ -70,7 +70,7 @@ const Cover = () => {
     <>
       {!isOpen ? (
         <div
-          className="h-screen w-full overflow-hidden bg-cover bg-no-repeat bg-center flex items-center justify-center"
+          className="container h-screen w-full overflow-hidden bg-cover bg-no-repeat bg-center flex items-center justify-center"
           style={{
             backgroundImage: `url(${dataCover.image})`,
           }}
@@ -101,7 +101,7 @@ const Cover = () => {
           </div>
         </div>
       ) : (
-        <div className="h-screen w-full relative overflow-hidden">
+        <div className="container h-screen w-full relative overflow-hidden">
           <video
             autoPlay
             muted
@@ -145,7 +145,7 @@ const Cover = () => {
         </div>
       )}
       {showContent && (
-        <div>
+        <div className="container">
           <EndlessLove />
           <Bride />
           <Event />

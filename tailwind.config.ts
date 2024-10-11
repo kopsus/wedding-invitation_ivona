@@ -20,6 +20,15 @@ const config: Config = {
       backgroundImage: {
         gradient: "linear-gradient(180deg, #E6DED88F 0%, #E6DED8 100%)",
       },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateY(30%)" },
+          to: { transform: "translateY(-100%)" },
+        },
+      },
+      animation: {
+        "infinite-scroll": "infinite-scroll 50s linear infinite",
+      },
     },
   },
   plugins: [],
