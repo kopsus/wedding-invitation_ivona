@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { crimsonProNormal, gfsDidot } from "../../libs/fonts";
 import ButtonGold from "./ButtonGold";
+import { ShowZoomIn } from "./Animation";
 
 interface ICardVictoria {
   title: string;
@@ -18,7 +19,7 @@ const CardVictoria = ({
   onClick,
 }: ICardVictoria) => {
   return (
-    <div className="shadow-sm py-[50px] px-5 bg-[#F9F6EF] rounded-[20px] flex flex-col justify-center items-center gap-y-5 text-center">
+    <ShowZoomIn className="shadow-sm py-[50px] px-5 bg-[#F9F6EF] rounded-[20px] flex flex-col justify-center items-center gap-y-5 text-center">
       <p
         className={`${gfsDidot.className} text-2xl text-black tracking-[0.5px] leading-none`}
       >
@@ -32,7 +33,7 @@ const CardVictoria = ({
       <ButtonGold onClick={onClick} iconLeft={iconButton}>
         {textButton}
       </ButtonGold>
-    </div>
+    </ShowZoomIn>
   );
 };
 

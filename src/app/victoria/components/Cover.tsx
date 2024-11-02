@@ -25,6 +25,7 @@ import TimeBack from "./TimeBack";
 import Gallery from "./Gallery";
 import Gift from "./gift/Gift";
 import Rsvp from "./rsvp/Rsvp";
+import Story from "./Story";
 
 const Cover = () => {
   const searchParams = useSearchParams();
@@ -156,6 +157,7 @@ const Cover = () => {
           <Gallery />
           <Gift />
           <Rsvp />
+          <Story />
           <Audio
             audioRef={audioRef}
             isPlaying={isPlaying}

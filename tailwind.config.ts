@@ -19,6 +19,7 @@ const config: Config = {
         // victoria
         cardVictoria: "0px 0px 30px 0px rgba(0, 0, 0, 0.3)",
         cardGroomVictoria: "0px 0px 30px 0px rgba(0, 0, 0, 0.28)",
+        storyVictoria: "0px 8px 10px 0px rgba(0, 0, 0, 0.18)",
       },
       backgroundImage: {
         gradient: "linear-gradient(180deg, #E6DED88F 0%, #E6DED8 100%)",
