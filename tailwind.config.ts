@@ -16,9 +16,16 @@ const config: Config = {
       boxShadow: {
         sm: "0px 0px 30px 0px rgba(0, 0, 0, 0.5);",
         md: "2px 2px 5px -2px rgba(0, 0, 0, 0.5);",
+        // victoria
+        cardVictoria: "0px 0px 30px 0px rgba(0, 0, 0, 0.3)",
+        cardGroomVictoria: "0px 0px 30px 0px rgba(0, 0, 0, 0.28)",
       },
       backgroundImage: {
         gradient: "linear-gradient(180deg, #E6DED88F 0%, #E6DED8 100%)",
+        // vicoria
+        gradientGolden:
+          "linear-gradient(90deg, #A68304 0%, #EDBA42 50%, #A68304 100%)",
+        buttonGold: "linear-gradient(200deg, #AC8711 0%, #D4C897 100%)",
       },
       keyframes: {
         "infinite-scroll": {
