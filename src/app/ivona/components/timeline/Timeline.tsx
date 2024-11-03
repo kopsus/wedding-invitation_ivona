@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import bgImg from "@/../public/images/pink-forest2.jpg";
 import Image from "next/image";
 import {

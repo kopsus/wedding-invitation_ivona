@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import Modal from "../_global/Modal";
 import { abhaya_libre, lato, latoBold } from "@/utils/fonts";
 import data from "@/utils/data";
