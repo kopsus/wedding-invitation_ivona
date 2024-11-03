@@ -7,9 +7,12 @@ import TextGolden from "./_global/TextGolden";
 import { dataMempelai } from "../libs/data";
 import useCountdown from "@/hooks/useCountdown";
 import { ShowZoomIn } from "./_global/Animation";
+import data from "@/utils/data";
+import { formatTimeline } from "@/utils/formatTimeline";
 
 const TimeBack = () => {
   const countdown = useCountdown(dataMempelai.timeline);
+  const { timeline } = data();
 
   return (
     <div className="relative p-5 bg-[#EDE6D5]">
@@ -21,7 +24,7 @@ const TimeBack = () => {
           className="absolute top-0 left-0 w-full h-full bg-bottom bg-no-repeat bg-contain opacity-100"
           style={{ backgroundImage: `url(${asset2.src})` }}
         ></div>
-        <div className="flex flex-col gap-y-5 justify-center items-center">
+        <div className="relative flex flex-col gap-y-5 justify-center items-center">
           <ShowZoomIn>
             <TextGolden
               className={`${gfsDidot.className} text-[25px] uppercase leading-4`}
@@ -55,7 +58,24 @@ const TimeBack = () => {
               <p>Seconds</p>
             </div>
           </ShowZoomIn>
-          <ButtonGold iconLeft={<FaCalendarAlt />}>add to calender</ButtonGold>
+          <ButtonGold
+            onClick={() =>
+              window.open(
+                `https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+${
+                  dataMempelai.nama_panggilan_pria
+                } and+${dataMempelai.nama_panggilan_wanita}&details=${
+                  timeline.detailInvite
+                }.&dates=${formatTimeline(
+                  timeline.startDate,
+                  timeline.endDate
+                )}&location`,
+                "_blank"
+              )
+            }
+            iconLeft={<FaCalendarAlt />}
+          >
+            add to calender
+          </ButtonGold>
         </div>
       </div>
     </div>

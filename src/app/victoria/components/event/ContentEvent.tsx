@@ -15,6 +15,7 @@ interface IContentEvent {
   placeName: string;
   addressPlace: string;
   textButton: string;
+  onClick?: () => void;
 }
 
 const ContentEvent = ({
@@ -25,6 +26,7 @@ const ContentEvent = ({
   timeEnd,
   title,
   textButton,
+  onClick,
 }: IContentEvent) => {
   return (
     <div
@@ -49,7 +51,7 @@ const ContentEvent = ({
         <strong>{placeName}</strong>
         <p>{addressPlace}</p>
       </FadeInUp>
-      <ButtonGold iconLeft={<FaMapMarkerAlt size={16} />}>
+      <ButtonGold onClick={onClick} iconLeft={<FaMapMarkerAlt size={16} />}>
         {textButton}
       </ButtonGold>
       <div className="h-5 w-full" />

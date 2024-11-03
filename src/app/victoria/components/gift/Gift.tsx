@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Gift = () => {
   const [openModal, setOpenModal] = useState(false);
+
   return (
     <div className="relative w-full py-[75px] px-[30px] overflow-hidden">
       <div
@@ -25,6 +26,9 @@ const Gift = () => {
           desc="We invite those of you who cannot attend in person to join our special moment through a virtual live streaming by clicking the following:"
           textButton="Live streaming"
           iconButton={<FaVideo />}
+          onClick={() =>
+            window.open("https://www.instagram.com/tibradigital/", "_blank")
+          }
         />
       </div>
       {openModal && <ModalGift closeModal={() => setOpenModal(false)} />}

@@ -41,6 +41,12 @@ const Event = () => {
                 placeName={item.place}
                 addressPlace={item.maps}
                 textButton="Google Maps"
+                onClick={() =>
+                  window.open(
+                    `https://www.google.com/maps/place/${item.maps}`,
+                    "_blank"
+                  )
+                }
               />
             );
           })}

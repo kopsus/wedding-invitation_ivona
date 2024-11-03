@@ -4,7 +4,7 @@ import { manstein } from "../libs/fonts";
 import data from "@/utils/data";
 import Image from "next/image";
 import { useLightbox } from "@/components/lightbox/useLightbox";
-import { FadeInUp, ShowZoomIn } from "./_global/Animation";
+import { ShowZoomIn } from "./_global/Animation";
 import { NextLightbox } from "@/components/lightbox/Lightbox";
 
 const Gallery = () => {
@@ -32,7 +32,7 @@ const Gallery = () => {
           </ShowZoomIn>
           <div className="grid grid-cols-2 gap-2 mt-3">
             {gallery.map((item, index) => (
-              <FadeInUp
+              <ShowZoomIn
                 key={index}
                 onClick={() =>
                   lightbox.open(
@@ -50,7 +50,7 @@ const Gallery = () => {
                   sizes="100vw"
                   className="hover:scale-110 transition-all"
                 />
-              </FadeInUp>
+              </ShowZoomIn>
             ))}
             <NextLightbox
               index={lightbox.index}

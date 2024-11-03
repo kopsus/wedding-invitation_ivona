@@ -26,6 +26,8 @@ import Gallery from "./Gallery";
 import Gift from "./gift/Gift";
 import Rsvp from "./rsvp/Rsvp";
 import Story from "./Story";
+import QrCheckin from "./qr/QrCheckin";
+import Footer from "./Footer";
 
 const Cover = () => {
   const searchParams = useSearchParams();
@@ -158,6 +160,8 @@ const Cover = () => {
           <Gift />
           <Rsvp />
           <Story />
+          <QrCheckin guestName={guestName} />
+          <Footer />
           <Audio
             audioRef={audioRef}
             isPlaying={isPlaying}
